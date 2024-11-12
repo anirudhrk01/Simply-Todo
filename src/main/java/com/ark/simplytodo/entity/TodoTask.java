@@ -1,5 +1,8 @@
 package com.ark.simplytodo.entity;
 
+import com.ark.simplytodo.enums.TodoTaskStatus;
+
+
 import java.util.Date;
 
 public class TodoTask {
@@ -15,9 +18,6 @@ public class TodoTask {
     private Date createdAt = Date.from(java.time.Instant.now());
 
 
-    public enum TodoTaskStatus{
-        NOT_STARTED,IN_PROGRESS,COMPLETED,CANCELLED,FAILED
-    }
 
     public static int getIdCounter() {
         return idCounter;
