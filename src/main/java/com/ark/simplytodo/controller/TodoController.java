@@ -2,6 +2,7 @@ package com.ark.simplytodo.controller;
 
 import com.ark.simplytodo.entity.TodoTask;
 import com.ark.simplytodo.service.TodoService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,6 +23,8 @@ public class TodoController {
     public List<?> getAllTasks(){
         return todoService.getAllTasks();
     }
+
+
     @DeleteMapping("/task/{id}")
     public void deleteTask(@PathVariable int id){
           todoService.delete(id);
