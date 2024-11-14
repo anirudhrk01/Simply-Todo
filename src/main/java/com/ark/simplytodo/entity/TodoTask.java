@@ -13,6 +13,7 @@ import lombok.Setter;
 
 
 import java.util.Date;
+import java.util.Set;
 
 @Data
 @Entity
@@ -25,11 +26,15 @@ public class TodoTask {
     @NotNull(message = "title can't be null")
     private String title;
     private String description;
-    private TodoTaskStatus status;
+
+    private TodoTaskStatus status=TodoTaskStatus.NOT_STARTED;
 
     private Date dueDate;
 
     @NotNull(message = "created date can't be null")
     private Date createdAt= Date.from(java.time.Instant.now());
+
+    private Set<String> tags;
+
 
 }
