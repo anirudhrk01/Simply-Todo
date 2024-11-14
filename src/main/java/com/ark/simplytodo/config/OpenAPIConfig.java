@@ -12,7 +12,7 @@ import io.swagger.v3.oas.models.servers.Server;
 public class OpenAPIConfig {
 
     @Bean
-    public OpenAPI swaggerOpenAPI() { //change this
+    public OpenAPI todoList() { //change this
         return new OpenAPI()
                 .info(new Info()
                         .title("todolist")
@@ -28,3 +28,4 @@ public class OpenAPIConfig {
                 .addServersItem(new Server().url("/"));
     }
 }
+
