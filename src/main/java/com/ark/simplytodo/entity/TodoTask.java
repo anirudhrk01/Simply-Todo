@@ -5,14 +5,12 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.validation.constraints.NotNull;
-import lombok.AccessLevel;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+
 
 
 import java.util.Date;
+import java.util.Set;
 
 @Data
 @Entity
@@ -22,14 +20,17 @@ public class TodoTask {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @NotNull(message = "title can't be null")
     private String title;
     private String description;
-    private TodoTaskStatus status;
-
+    private TodoTaskStatus status = TodoTaskStatus.NOT_STARTED;
     private Date dueDate;
+    private Date createdAt = Date.from(java.time.Instant.now());
+    private Set<String> tags;
 
-    @NotNull(message = "created date can't be null")
-    private Date createdAt= Date.from(java.time.Instant.now());
-
+    public void setTitle(String title){
+        if(title == null || title.isEmpty())
+            throw new IllegalArgumentException("Title cannot be null or empty, please provide a valid title.");
+        this.title = title;
+    }
 }
+
