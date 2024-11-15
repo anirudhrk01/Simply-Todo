@@ -2,10 +2,7 @@ package com.ark.simplytodo.entity;
 
 import com.ark.simplytodo.annotation.Phone;
 import com.ark.simplytodo.enums.TodoTaskStatus;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
@@ -37,6 +34,11 @@ public class TodoTask {
 
     @Phone
     private String phone;
+
+    @ManyToOne
+    @JoinColumn("user_id")
+    private User user;
+    
 
 
 }
